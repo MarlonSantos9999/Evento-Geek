@@ -1,0 +1,178 @@
+/* 1. VARIÁVEIS DE CORES (Para facilitar o uso no código) */
+:root {
+    --bg-principal: #121214;       /* Fundo quase preto */
+    --bg-card: #1d1d22;            /* Fundo dos blocos de conteúdo */
+    --cor-roxa: #6200ea;           /* Cor geek principal */
+    --cor-neon: #00e5ff;           /* Azul néon para destaques */
+    --texto: #ffffff;              /* Texto branco */
+}
+
+/* 2. RESET (Zera as margens padrão do navegador para não quebrar o layout) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Geneva, Verdana, sans-serif;
+}
+
+/* 3. ESTILO DO CORPO DA PÁGINA */
+body {
+    background-color: var(--bg-principal);
+    color: var(--texto);
+    line-height: 1.6;
+}
+
+/* 4. ESTILO DO CABEÇALHO */
+header {
+    background: linear-gradient(135deg, var(--cor-roxa), #311b92);
+    text-align: center;
+    padding: 3rem 1rem;
+    border-bottom: 4px solid var(--cor-neon);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px var(--cor-neon);
+}
+
+/* 5. ALINHAMENTO COM FLEXBOX (Ajustado para não ultrapassar a tela) */
+.container {
+    width: 100%;               /* Garante que ocupe a largura da tela disponível */
+    max-width: 1000px;         /* Limita o tamanho máximo em telas grandes */
+    margin: 2rem auto;         /* Centraliza o site na tela horizontalmente */
+    padding: 0 1rem;           /* Evita que o conteúdo cole nas bordas da tela */
+    display: flex;             /* Ativa o Flexbox */
+    flex-wrap: wrap;           /* Permite que os cards quebrem linha em telas menores */
+    gap: 2rem;                 /* Espaçamento entre os cards */
+}
+
+/* 6. ESTILO DOS CARDS (Ajustado com max-width para segurança em qualquer navegador) */
+section {
+    flex: 1 1 400px;           /* Base flexível reduzida ligeiramente para melhor encaixe */
+    max-width: 100%;           /* Impede o card de forçar o container a estourar a tela */
+    background-color: var(--bg-card);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+section h2 {
+    color: var(--cor-neon);
+    margin-bottom: 1.2rem;
+    border-bottom: 2px solid rgba(0, 229, 255, 0.2);
+    padding-bottom: 0.5rem;
+}
+
+/* 7. ESTILIZANDO A LISTA DE ATIVIDADES */
+ul {
+    list-style: none;          /* Remove as bolinhas padrão da lista */
+    margin-top: 1rem;
+}
+
+ul li {
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: 0.8rem;
+    margin-bottom: 0.6rem;
+    border-left: 4px solid var(--cor-roxa);   /* Barrinha roxa estilosa na esquerda */
+    border-radius: 0 4px 4px 0;
+}
+
+/* 8. CAMPOS DE ENTRADA DO FORMULÁRIO */
+.form-group {
+    margin-bottom: 1.2rem;     /* Espaçamento entre cada campo */
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+input, select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background-color: #2a2a32; /* Fundo interno do campo mais claro que o card */
+    border: 1px solid #444;    /* Borda sutil */
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Efeito ao clicar/focar no campo */
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--cor-neon);
+    box-shadow: 0 0 8px rgba(0, 229, 255, 0.3);
+}
+
+/* 9. BOTÃO DE ENVIO */
+button {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--cor-neon);
+    color: #000000;            /* Texto preto para dar contraste com o fundo néon */
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: transform 0.1s, background-color 0.2s;
+}
+
+/* Efeito ao passar o mouse no botão */
+button:hover {
+    background-color: #00b8d4; /* Um azul um pouco mais escuro */
+    transform: translateY(-2px); /* Efeito flutuante leve */
+}
+
+/* Efeito ao clicar no botão */
+button:active {
+    transform: translateY(0);
+}
+
+/* 10. ESTILO DO RODAPÉ */
+footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 4rem;
+    font-size: 0.85rem;
+    color: #777;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* 11. ESTILO E ANIMAÇÃO DA MENSAGEM DE SUCESSO (Visual moderno e fluido) */
+.sucesso-alerta {
+    margin-top: 1.5rem;
+    padding: 1.2rem;
+    background: linear-gradient(135deg, #1b5e20, #2e7d32); /* Degradê sutil no verde */
+    border-left: 4px solid var(--cor-neon);               /* Linha combinando com o néon do site */
+    border-radius: 4px;
+    text-align: center;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 229, 255, 0.1);
+    
+    /* Ativa a nova animação de surgimento sutil e elegante */
+    animation: surgimentoPremium 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Nova animação: Combina opacidade, escala leve e subida suave */
+@keyframes surgimentoPremium {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.98);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
